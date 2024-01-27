@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ims
+  namespace: dev
+  labels:
+    app: ims
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ims
+  template:
+    metadata:
+      namespace: dev
+      labels:
+        app: ims
+    spec:
+      containers:
+      - name: ims
+        image: harishdhayalan1/ims
+        ports:
+        - containerPort: 8080
+          name: ims-port
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: ims-service
+  namespace: dev
+spec:
+  selector:
+    app: ims
+  ports:
+  - name: ims-service-port
+    protocol: TCP
+    port: 3000
+    targetPort: ims-port
