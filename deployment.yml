@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
       - name: ims
-        image: harishdhayalan1/ims
+        image: harishdhayalan1/ims:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
           name: ims-port
