@@ -1,0 +1,10 @@
+---
+
+- name: Running ls command
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Running K8s deployment file
+      ansible.builtin.shell: kubectl apply -f ../namespace.yml
+      register: ps
+    - debug: msg= {{ ps.stdout }}

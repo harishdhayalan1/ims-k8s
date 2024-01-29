@@ -1,0 +1,10 @@
+---
+
+- name: Running ls command
+  hosts: 127.0.0.1
+  connection: local
+  tasks:
+    - name: Running LS
+      ansible.builtin.shell: ls -al
+      register: ps
+    - debug: var= {{ ps }}

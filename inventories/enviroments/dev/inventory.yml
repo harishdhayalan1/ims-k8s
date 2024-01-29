@@ -1,0 +1,5 @@
+local:
+  namespace: dev
+  postgres_docker: true
+  postgres_uri: dev
+
